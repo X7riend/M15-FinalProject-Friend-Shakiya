@@ -67,10 +67,7 @@ public class FinalProjectApplication {
 				} catch (Exception e) {
 					System.out.println("An error has occurred: " + e.getMessage());
 				}
-				System.out.println(cityName + " has weather of that consist of: ");
-				System.out.println(weatherResponse.weather[0].description);
-
-
+				System.out.println(cityName + " has weather that consist of: " + weatherResponse.weather[0].description);
 
 				break;
 			}
@@ -129,7 +126,7 @@ public class FinalProjectApplication {
 
 				break;
 			}
-			case "D":
+			case "D": {
 				WebClient clientSF = WebClient.create("http://api.open-notify.org/iss-now.json");
 
 				try {
@@ -157,7 +154,8 @@ public class FinalProjectApplication {
 					weatherResponse2 = responseSP.share().block();
 					System.out.println("The latitude of the ISS is: " + spaceResponse2.iss_position.latitude);
 					System.out.println("The longitude of the ISS is: " + spaceResponse2.iss_position.longitude);
-					System.out.println("The weather in the location: " + weatherResponse2.weather[0].description);
+					System.out.println("The coordinates point to " + weatherResponse2.name + ", " + weatherResponse2.sys.country);
+					System.out.println("The weather in the location consist of: " + weatherResponse2.weather[0].description);
 				} catch (WebClientResponseException wcre) {
 					int statusCode = wcre.getRawStatusCode();
 					if (statusCode >= 400 && statusCode < 500) {
@@ -170,14 +168,15 @@ public class FinalProjectApplication {
 					System.out.println("An error has occurred: " + e.getMessage());
 
 				}
-				if (selection.equals("E")) {
-					System.out.println("You are exiting the application. Goodbye!");
-				}
 				break;
+			}
+			case "E": {
+				System.out.println("You are exiting the application. Goodbye!");
+			break;
+			}
 			default:
 				System.out.println("You have not entered a valid selection.");
 		}
-
 	}
 }
 
