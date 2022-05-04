@@ -67,6 +67,7 @@ public class FinalProjectApplication {
 				} catch (Exception e) {
 					System.out.println("An error has occurred: " + e.getMessage());
 				}
+				System.out.println("You have indicated the location of: " + weatherResponse.name + ", " + weatherResponse.sys.country);
 				System.out.println(cityName + " has weather that consist of: " + weatherResponse.weather[0].description);
 
 				break;
