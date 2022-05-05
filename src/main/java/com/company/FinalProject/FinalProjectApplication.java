@@ -40,7 +40,9 @@ public class FinalProjectApplication {
 		String selection = scanner.nextLine();
 		SpaceResponse spaceResponse = null;
 		switch (selection) {
-			case "A": {
+			case "A":
+			case "a" :
+			{
 				System.out.println("Enter the name of the city whose weather you want info on");
 				cityName = scanner.nextLine();
 
@@ -72,7 +74,9 @@ public class FinalProjectApplication {
 
 				break;
 			}
-			case "B": {
+			case "B":
+			case "b":
+			{
 				System.out.println("Enter the Symbol of the cryptocurrency");
 				String cryptoSym = scanner.nextLine();
 				WebClient client = WebClient.create(String.format("https://rest.coinapi.io/v1/assets/%s?apikey=BADE6E39-3379-431C-9FC2-C42FF94A45FC", cryptoSym));
@@ -107,7 +111,9 @@ public class FinalProjectApplication {
 				System.out.println("The price of the currency is " + fmt.format(cryptoResponse[0].price_usd));
 				break;
 			}
-			case "C": {
+			case "C":
+			case "c":
+			{
 				WebClient client = WebClient.create("http://api.open-notify.org/iss-now.json");
 
 				Mono<SpaceResponse> response3;
@@ -127,7 +133,9 @@ public class FinalProjectApplication {
 
 				break;
 			}
-			case "D": {
+			case "D":
+			case "d":
+			{
 				WebClient clientSF = WebClient.create("http://api.open-notify.org/iss-now.json");
 
 				try {
@@ -171,7 +179,9 @@ public class FinalProjectApplication {
 				}
 				break;
 			}
-			case "E": {
+			case "E":
+			case "e":
+			{
 				System.out.println("You are exiting the application. Goodbye!");
 			break;
 			}
